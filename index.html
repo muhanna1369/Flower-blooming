@@ -11,9 +11,27 @@
 <body class="not-loaded">
   <!-- 🎁 GIFT ICON LINK -->
   <div class="top-link">
-    <a href="https://muhanna1369.github.io/Happy-Birthday/" target="_blank">
+    <a href="#" onclick="askBeforeRedirect(event)">
       🎁 Click here
     </a>
+    
+    <script>
+      function askBeforeRedirect(e) {
+        e.preventDefault();
+    
+        Swal.fire({
+          title: 'Do you want to play music in the background?',
+          icon: 'question',
+          showCancelButton: true,
+          confirmButtonText: 'Yes',
+          cancelButtonText: 'No',
+        }).then((result) => {
+          const musicParam = result.isConfirmed ? 'yes' : 'no';
+          window.open(`https://muhanna1369.github.io/Happy-Birthday/?music=${musicParam}`, '_blank');
+        });
+      }
+    </script>
+    
   </div>
   <div class="night"></div>
   <div class="flowers">
